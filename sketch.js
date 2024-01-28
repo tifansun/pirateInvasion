@@ -113,7 +113,7 @@ function dispararBala(){
 
 function crearBarco(){
   if( frameCount % 180 == 0){
-    barcoPirata=createSprite(random(width, width*0.5),height-(height*0.25));
+    barcoPirata=createSprite(random(width, width*2),height-(height*0.25));
     barcoPirata.addAnimation("barcoANI",barcoANI);
     barcoPirata.addAnimation("barcobyebyeANI",barcobyebyeANI);
     barcoPirata.velocityX=-random(2,5);
@@ -134,6 +134,8 @@ function gameOver(torre, barco){
   swal({
     title: "GAME OVER",
     text: "PERDISTE",
+    imageUrl: "./recursos/barco_0.png",
+    imageSize: "150x150",
     confirmButtonText: "Jugar de Nuevo"
   }, 
   function (confirmacion){

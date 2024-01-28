@@ -21,17 +21,16 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
-  canon=createSprite(190,100);
+  canon=createSprite(height*.3,height-(height*0.84));
   canon.addImage(canonIMG);
-  canon.scale=0.1;
-  canon.rotation=0;
+  canon.scale=height*0.1/600;
   balasGRP=createGroup();
-  base=createSprite(120,140);
+  base=createSprite(height*.2,height-(height*0.77));
   base.addImage(baseIMG);
-  base.scale=0.1;
-  torre=createSprite(120,330,100,300);
+  base.scale=height*0.1/600;
+  torre=createSprite(base.x,height-(height*0.45),100,300);
   torre.addImage(torreIMG);
-  torre.scale=0.5;
+  torre.scale=height*0.5/600;
   barcosGRP=createGroup();
 }
 
@@ -73,7 +72,7 @@ function dispararBala(){
   if((keyDown(70) || keyWentDown(32))){
     bala=createSprite(canon.x, canon.y);
     bala.addAnimation("balaANI",balaANI);
-    bala.scale=0.2;
+    bala.scale=height*0.2/600;;
     bala.depth=0;
     bala.tiempo=0;
     bala.angulo=-canon.rotation;
@@ -114,13 +113,12 @@ function dispararBala(){
 
 function crearBarco(){
   if( frameCount % 180 == 0){
-    barcoPirata=createSprite(random(1400, 1700),450);
+    barcoPirata=createSprite(random(width, width*0.5),height-(height*0.25));
     barcoPirata.addAnimation("barcoANI",barcoANI);
     barcoPirata.addAnimation("barcobyebyeANI",barcobyebyeANI);
     barcoPirata.velocityX=-random(2,5);
-    barcoPirata.scale=0.7;
+    barcoPirata.scale=height*0.7/600;;
     barcosGRP.add(barcoPirata);
-    barcoPirata.debug=true;
     barcoPirata.setCollider("rectangle",30,100,250,90);
   }
 }

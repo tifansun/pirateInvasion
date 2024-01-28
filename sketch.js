@@ -135,7 +135,7 @@ function gameOver(torre, barco){
     title: "GAME OVER",
     text: "PERDISTE",
     imageUrl: "./recursos/barco_0.png",
-    imageSize: "300x300",
+    imageSize: "150x150",
     confirmButtonText: "Jugar de Nuevo"
   }, 
   function (confirmacion){

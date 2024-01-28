@@ -134,8 +134,6 @@ function gameOver(torre, barco){
   swal({
     title: "GAME OVER",
     text: "PERDISTE",
-    imageUrl: "./recursos/barco_0.png",
-    imageSize: "150x150",
     confirmButtonText: "Jugar de Nuevo"
   }, 
   function (confirmacion){

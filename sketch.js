@@ -17,6 +17,8 @@ function preload() {
   explosion=loadSound("./recursos/sonido_explosion.mp3");
   chapoteo=loadSound("./recursos/sonido_agua.mp3");
   musicaFondo=loadSound("./recursos/background_music.mp3");
+  izquierda=loadImage("./recursos/left.png")
+  derecha=loadImage("./recursos/right.png")
 }
 
 function setup() {
@@ -32,6 +34,10 @@ function setup() {
   torre.addImage(torreIMG);
   torre.scale=height*0.5/600;
   barcosGRP=createGroup();
+  izq = createSprite(100,100)
+  izq.addImage(izquierda)
+  der = createSprite(100,300)
+  der.addImage(derecha)
 }
 
 function draw() {
@@ -60,19 +66,19 @@ function draw() {
 }
 
 function apuntarCanon(){
-  if(keyDown(39) && canon.rotation <=85){
+  if((keyDown(39) || mousePressedOver(der)) && canon.rotation <=85){
     canon.rotation+=1;
   }
-  if(keyDown(37) && canon.rotation >=-85){
+  if((keyDown(37) || mousePressedOver(izq)) && canon.rotation >=-85){
     canon.rotation-=1;
   }
 }
 
 function dispararBala(){
-  if((keyDown(70) || keyWentDown(32))){
+  if((keyDown(70) || keyWentDown(32) || mousePressedOver(canon))){
     bala=createSprite(canon.x, canon.y);
     bala.addAnimation("balaANI",balaANI);
-    bala.scale=height*0.2/600;;
+    bala.scale=height*0.2/600;
     bala.depth=0;
     bala.tiempo=0;
     bala.angulo=-canon.rotation;

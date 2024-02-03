@@ -36,7 +36,9 @@ function setup() {
   btnIzq = createImg("./recursos/left.png")
   btnDer = createImg("./recursos/right.png")
   btnIzq.mouseClicked(ai);
-  btnIzq.mouseClicked(ad);
+  btnDer.mouseClicked(ad);
+  btnIzq.position(width-500, height-height/2)
+  btnDer.position(width-300, height-height/2)
 }
 
 function draw() {
@@ -75,13 +77,13 @@ function apuntarCanon(){
 function ai() {
   
   if(canon.rotation >=-85){
-    canon.rotation-=1;
+    canon.rotation-=10;
   }
 }
 
 function ad() {
   if(canon.rotation <=85){
-    canon.rotation+=1;
+    canon.rotation+=10;
   }
 }
 
